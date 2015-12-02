@@ -1,11 +1,9 @@
 {
 	"name": "proquest-uikit",
 	"version": "1.2.3",
-	"main": "/src/**",
+	"main": "/dist/**",
 	"ignore": [
-		"/download",
-		"/release",
-		"/.tmp"
+		"/download"
 	],
 	"dependencies": {
 		"bootstrap": "~3.3"

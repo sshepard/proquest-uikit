@@ -25,7 +25,7 @@ module.exports = function(grunt) {
 	var lessConfig = function() {
 		return {
 			expand: true,
-			cwd: 'less/',
+			cwd: 'src/less/',
 			src: lessColorsSrc(),
 			dest: '.tmp/css/',
 			ext: '.css'
@@ -104,12 +104,12 @@ module.exports = function(grunt) {
 
 		compress: {
 			// Package /dist/.
-			framework: {
+			download: {
 				options: {
-					archive: 'dist/<%= bower.name %>-<%= bower.version %>.zip'
+					archive: 'download/<%= bower.name %>-<%= bower.version %>.zip'
 				},
 				files: [
-					{src: ['dist/**', '!dist/*.zip']}
+					{src: ['dist/**']}
 				]
 			}
 		},
@@ -118,7 +118,7 @@ module.exports = function(grunt) {
 		copy: {
 			uikitTmp: {
 				expand: true,
-				cwd: '',
+				cwd: 'src/',
 				src: ['fonts/**', 'images/**'],
 				dest: '.tmp/'
 			},
@@ -149,13 +149,15 @@ module.exports = function(grunt) {
 	/**
 	 * UIKit task compiles UIKit, creates the downloadable Zip.
 	 */
-	grunt.registerTask('uikit', [
+	grunt.registerTask('uikit', ['default']);
+
+	grunt.registerTask('default', [
 		'clean:tmp',
 		'concurrent:uikit',
 		'autoprefixer',
 		'cssmin',
 		'copy:uikitDist',
-		'compress:framework',
+		'compress',
 		'clean:tmp'
 	]);
 };
