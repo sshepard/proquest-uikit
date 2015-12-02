@@ -153,6 +153,7 @@ module.exports = function(grunt) {
 
 	grunt.registerTask('default', [
 		'clean:tmp',
+		'clean:dist',
 		'concurrent:uikit',
 		'autoprefixer',
 		'cssmin',
