@@ -1,3 +1,5 @@
+UIKit contains the code used for styling sites for ProQuest. Please see UX-Framework site for implementation details.
+
 # Include UIKit into your project by using Bower:
 
 bower install --save proquest-uikit
